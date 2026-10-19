@@ -1,0 +1,12 @@
+17:51:54 broker de desenvolvimento ouvindo na porta 1883
+17:51:56 conectou: backend-ingestao
+17:51:57 conectou: esp32-sala01-rack01
+17:51:57 conectou: esp32-sala01-rack02
+17:52:57 desconectou: esp32-sala01-rack01
+17:53:57 conectou: esp32-sala01-rack01
+17:54:54 desconectou: backend-ingestao
+17:55:26 conectou: backend-ingestao
+17:57:25 broker de desenvolvimento ouvindo na porta 1883
+17:57:27 conectou: esp32-sala01-rack02
+17:57:27 conectou: esp32-sala01-rack01
+17:57:27 conectou: backend-ingestao

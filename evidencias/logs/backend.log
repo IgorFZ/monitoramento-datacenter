@@ -1,0 +1,268 @@
+17:51:56 [backend] API e painel em http://localhost:3000
+17:51:56 [backend] conectado ao broker (sessao anterior: nao)
+17:51:57 [backend] [rack01] status: online
+17:51:57 [backend] ALERTA - [rack01] Nó conectado ao broker
+17:51:57 [backend] [rack01] #1 gravada T=23 UR=44.6 I=7.4
+17:51:57 [backend] [rack02] status: online
+17:51:57 [backend] ALERTA - [rack02] Nó conectado ao broker
+17:51:57 [backend] [rack02] #1 gravada T=25.4 UR=43.9 I=7.8
+17:52:02 [backend] [rack01] #2 gravada T=22.9 UR=45.2 I=7.4
+17:52:02 [backend] [rack02] #2 gravada T=25.5 UR=45.9 I=7.7
+17:52:07 [backend] [rack01] #3 gravada T=23 UR=45.6 I=7.8
+17:52:07 [backend] [rack02] #3 gravada T=25.6 UR=43.9 I=7.4
+17:52:12 [backend] [rack01] #4 gravada T=23.1 UR=43.7 I=7.7
+17:52:12 [backend] [rack02] #4 gravada T=25.8 UR=44.1 I=7.5
+17:52:17 [backend] [rack01] #5 gravada T=22.9 UR=43.1 I=7.9
+17:52:17 [backend] [rack02] #5 gravada T=25.8 UR=43.6 I=7.7
+17:52:22 [backend] [rack01] #6 gravada T=22.9 UR=43 I=7.8
+17:52:22 [backend] [rack02] #6 gravada T=25.9 UR=46.1 I=7.3
+17:52:27 [backend] [rack02] #7 gravada T=26 UR=45.4 I=7.8
+17:52:27 [backend] [rack01] #7 gravada T=23 UR=43.2 I=7.5
+17:52:32 [backend] [rack01] #8 gravada T=23 UR=44.4 I=7.8
+17:52:32 [backend] [rack02] #8 gravada T=26 UR=45.8 I=7.8
+17:52:37 [backend] [rack01] #9 gravada T=23 UR=43.3 I=7.4
+17:52:37 [backend] [rack02] #9 gravada T=26 UR=45.3 I=7.6
+17:52:42 [backend] [rack02] #10 gravada T=26 UR=45.4 I=7.3
+17:52:42 [backend] [rack01] #10 gravada T=22.9 UR=43.2 I=7.4
+17:52:47 [backend] [rack01] #11 gravada T=23 UR=44.2 I=7.8
+17:52:47 [backend] [rack02] #11 gravada T=26.2 UR=45.6 I=7.3
+17:52:52 [backend] [rack01] #12 gravada T=23 UR=43.1 I=7.8
+17:52:52 [backend] [rack02] #12 gravada T=26.4 UR=45.6 I=7.1
+17:52:57 [backend] [rack01] status: offline
+17:52:57 [backend] ALERTA ! [rack01] Nó perdeu a conexão com o broker (Last Will)
+17:52:57 [backend] [rack02] #13 gravada T=26.3 UR=43.4 I=7.4
+17:53:02 [backend] [rack02] #14 gravada T=26.4 UR=45.6 I=7.5
+17:53:07 [backend] [rack02] #15 gravada T=26.4 UR=45.5 I=7.4
+17:53:11 [backend] ALERTA !!! [rack01] Sem leituras há 19 s (3 ciclos)
+17:53:12 [backend] [rack02] #16 gravada T=26.6 UR=44.6 I=7.2
+17:53:17 [backend] [rack02] #17 gravada T=26.5 UR=43.4 I=7.7
+17:53:22 [backend] [rack02] #18 gravada T=26.5 UR=46.1 I=7.3
+17:53:27 [backend] [rack02] #19 gravada T=26.7 UR=45.4 I=7.4
+17:53:32 [backend] [rack02] #20 gravada T=26.7 UR=46.6 I=7.5
+17:53:37 [backend] [rack02] #21 gravada T=26.8 UR=44.5 I=7.8
+17:53:42 [backend] [rack02] #22 gravada T=26.8 UR=43.4 I=7.7
+17:53:47 [backend] [rack02] #23 gravada T=27 UR=43.3 I=7.5
+17:53:47 [backend] ALERTA ! [rack02] Temperatura 27 °C (atenção a partir de 27 °C)
+17:53:52 [backend] [rack02] #24 gravada T=26.9 UR=46.6 I=7.2
+17:53:57 [backend] [rack01] status: online
+17:53:57 [backend] ALERTA - [rack01] Nó conectado ao broker
+17:53:57 [backend] [rack01] #13 gravada T=23.1 UR=43.7 I=7.1 (reenvio, atraso 60 s)
+17:53:57 [backend] ALERTA - [rack01] Comunicação restabelecida
+17:53:57 [backend] [rack01] #14 gravada T=23 UR=44.7 I=7.3 (reenvio, atraso 55 s)
+17:53:57 [backend] [rack01] #15 gravada T=22.9 UR=43.1 I=7.8 (reenvio, atraso 50 s)
+17:53:57 [backend] [rack01] #16 gravada T=22.9 UR=45.6 I=7.4 (reenvio, atraso 45 s)
+17:53:57 [backend] [rack01] #17 gravada T=23.1 UR=45.8 I=7.7 (reenvio, atraso 40 s)
+17:53:57 [backend] [rack01] #18 gravada T=23.1 UR=44.5 I=7.7 (reenvio, atraso 35 s)
+17:53:57 [backend] [rack01] #19 gravada T=23.1 UR=45.8 I=7.4 (reenvio, atraso 30 s)
+17:53:57 [backend] [rack01] #20 gravada T=23 UR=43.6 I=7.2 (reenvio, atraso 25 s)
+17:53:57 [backend] [rack01] #21 gravada T=23.1 UR=45.8 I=7.8 (reenvio, atraso 20 s)
+17:53:57 [backend] [rack01] #22 gravada T=22.9 UR=44.1 I=7.4 (reenvio, atraso 15 s)
+17:53:57 [backend] [rack01] #23 gravada T=23.1 UR=43.4 I=7.9 (reenvio, atraso 10 s)
+17:53:57 [backend] [rack01] #24 gravada T=22.9 UR=44 I=7.7 (reenvio, atraso 5 s)
+17:53:57 [backend] [rack02] #25 gravada T=27.2 UR=44.7 I=7.2
+17:53:57 [backend] ALERTA ! [rack02] Temperatura subindo 0.90 °C/min
+17:53:57 [backend] [rack01] #25 gravada T=23 UR=45.4 I=7.2
+17:54:02 [backend] [rack02] #26 gravada T=27.3 UR=45 I=7.9
+17:54:02 [backend] [rack01] #26 gravada T=22.9 UR=43.8 I=7.2
+17:54:07 [backend] [rack01] #27 gravada T=22.9 UR=44.9 I=7.3
+17:54:07 [backend] [rack02] #27 gravada T=27.1 UR=44.7 I=7.2
+17:54:12 [backend] [rack02] #28 gravada T=27.4 UR=45.6 I=7.5
+17:54:12 [backend] [rack01] #28 gravada T=23.1 UR=44.5 I=7.3
+17:54:17 [backend] [rack02] #29 gravada T=27.5 UR=43.8 I=7.4
+17:54:17 [backend] [rack01] #29 gravada T=23 UR=44.3 I=7.3
+17:54:22 [backend] [rack01] #30 gravada T=23.1 UR=44.5 I=7.9
+17:54:22 [backend] [rack02] #30 gravada T=27.6 UR=43.7 I=7.7
+17:54:27 [backend] [rack01] #31 gravada T=22.9 UR=43.5 I=7.7
+17:54:27 [backend] [rack02] #31 gravada T=27.4 UR=45.4 I=7.3
+17:54:32 [backend] [rack01] #32 gravada T=23 UR=46 I=7.4
+17:54:32 [backend] [rack02] #32 gravada T=27.4 UR=45.3 I=7.7
+17:54:37 [backend] [rack02] #33 gravada T=27.8 UR=43.8 I=7.7
+17:54:37 [backend] [rack01] #33 gravada T=23.1 UR=45.7 I=7.5
+17:54:42 [backend] [rack01] #34 gravada T=23.1 UR=43.4 I=7.4
+17:54:42 [backend] [rack02] #34 gravada T=27.7 UR=45.5 I=7.6
+17:54:47 [backend] [rack01] #35 gravada T=23 UR=46.4 I=7.6
+17:54:47 [backend] [rack02] #35 gravada T=27.7 UR=44.3 I=7.3
+17:54:52 [backend] [rack01] #36 gravada T=22.9 UR=44.9 I=7.1
+17:54:52 [backend] [rack02] #36 gravada T=27.9 UR=44 I=7.2
+17:55:26 [backend] API e painel em http://localhost:3000
+17:55:26 [backend] conectado ao broker (sessao anterior: sim)
+17:55:26 [backend] [rack01] #37 gravada T=23.1 UR=44.1 I=7.9
+17:55:26 [backend] [rack02] #37 gravada T=27.9 UR=44.2 I=7.9
+17:55:26 [backend] [rack02] alerta retroativo (17:54:57): Temperatura 27.9 °C (atenção a partir de 27 °C)
+17:55:26 [backend] [rack02] alerta retroativo (17:54:57): Temperatura subindo 0.80 °C/min
+17:55:26 [backend] [rack01] #38 gravada T=23.1 UR=43.5 I=7.4
+17:55:26 [backend] [rack02] #38 gravada T=27.8 UR=45 I=7.3
+17:55:26 [backend] [rack02] #39 gravada T=27.9 UR=43.7 I=7.4
+17:55:26 [backend] [rack01] #39 gravada T=23.1 UR=44.6 I=7.6
+17:55:26 [backend] [rack02] #40 gravada T=28 UR=43.1 I=7.4
+17:55:26 [backend] ALERTA ! [rack02] Temperatura 28 °C (atenção a partir de 27 °C)
+17:55:26 [backend] ALERTA ! [rack02] Temperatura subindo 0.70 °C/min
+17:55:26 [backend] [rack01] #40 gravada T=23.1 UR=46.7 I=7.8
+17:55:26 [backend] [rack01] #41 gravada T=23 UR=44 I=7.4
+17:55:26 [backend] [rack02] #41 gravada T=28.1 UR=45.6 I=7.9
+17:55:26 [backend] [rack02] #42 gravada T=28.2 UR=45.9 I=7.2
+17:55:26 [backend] [rack01] #42 gravada T=23 UR=45.9 I=7.3
+17:55:26 [backend] [rack01] status (retido): online
+17:55:26 [backend] [rack02] status (retido): online
+17:55:27 [backend] [rack01] #43 gravada T=22.9 UR=46.5 I=7.4
+17:55:27 [backend] [rack02] #43 gravada T=28.4 UR=45.4 I=7.3
+17:55:32 [backend] [rack01] #44 gravada T=23.1 UR=45.3 I=7.6
+17:55:32 [backend] [rack02] #44 gravada T=28.4 UR=43.2 I=7.5
+17:55:37 [backend] [rack02] #45 gravada T=28.5 UR=44 I=7.3
+17:55:37 [backend] [rack01] #45 gravada T=23 UR=44.5 I=7.3
+17:55:42 [backend] [rack01] #46 gravada T=23 UR=44.1 I=7.3
+17:55:42 [backend] [rack02] #46 gravada T=28.6 UR=43.9 I=7.1
+17:55:47 [backend] [rack02] #47 gravada T=28.7 UR=46.2 I=7.1
+17:55:47 [backend] [rack01] #47 gravada T=23.1 UR=46.5 I=7.4
+17:55:52 [backend] [rack01] #48 gravada T=22.9 UR=44.3 I=7.2
+17:55:52 [backend] [rack02] #48 gravada T=28.7 UR=45.6 I=7.8
+17:55:57 [backend] [rack01] #49 gravada T=22.9 UR=43.5 I=7.2
+17:55:57 [backend] [rack02] #49 gravada T=28.6 UR=43.1 I=7.2
+17:56:02 [backend] [rack01] #50 gravada T=22.9 UR=44.4 I=7.4
+17:56:02 [backend] [rack02] #50 gravada T=28.8 UR=43.7 I=7.3
+17:56:07 [backend] [rack02] #51 gravada T=28.9 UR=43.9 I=7.4
+17:56:07 [backend] [rack01] #51 gravada T=23 UR=45.3 I=7.4
+17:56:12 [backend] [rack02] #52 gravada T=29 UR=44.9 I=7.6
+17:56:12 [backend] [rack01] #52 gravada T=23.1 UR=43.8 I=7.2
+17:56:17 [backend] [rack01] #53 gravada T=23.1 UR=46.1 I=7.2
+17:56:17 [backend] [rack02] #53 gravada T=29 UR=43.5 I=7.2
+17:56:22 [backend] [rack01] #54 gravada T=23 UR=45.3 I=7.6
+17:56:22 [backend] [rack02] #54 gravada T=29.1 UR=44.7 I=7.2
+17:56:27 [backend] [rack01] #55 gravada T=23 UR=46 I=7.6
+17:56:27 [backend] [rack02] #55 gravada T=29.2 UR=46.2 I=7.4
+17:56:32 [backend] [rack01] #56 gravada T=23 UR=43.2 I=7.7
+17:56:32 [backend] [rack02] #56 gravada T=29.3 UR=44.8 I=7.9
+17:56:37 [backend] [rack01] #57 gravada T=22.9 UR=43.4 I=7.9
+17:56:37 [backend] [rack02] #57 gravada T=29.2 UR=45.6 I=7.4
+17:56:42 [backend] [rack01] #58 gravada T=23 UR=44.2 I=7.3
+17:56:42 [backend] [rack02] #58 gravada T=29.4 UR=46.8 I=7.6
+17:56:47 [backend] [rack02] #59 gravada T=29.4 UR=44.3 I=7.2
+17:56:47 [backend] [rack01] #59 gravada T=23 UR=45.6 I=7.9
+17:56:52 [backend] [rack01] #60 gravada T=23 UR=45.7 I=7.6
+17:56:52 [backend] [rack02] #60 gravada T=29.6 UR=43.5 I=7.4
+17:56:54 [backend] erro mqtt: read ECONNRESET
+17:56:54 [backend] sem conexao com o broker, tentando de novo...
+17:56:57 [backend] erro mqtt: ECONNREFUSED
+17:57:00 [backend] erro mqtt: ECONNREFUSED
+17:57:03 [backend] erro mqtt: ECONNREFUSED
+17:57:06 [backend] erro mqtt: ECONNREFUSED
+17:57:09 [backend] erro mqtt: ECONNREFUSED
+17:57:11 [backend] ALERTA !!! [rack01] Sem leituras há 19 s (3 ciclos)
+17:57:11 [backend] ALERTA !!! [rack02] Sem leituras há 19 s (3 ciclos)
+17:57:12 [backend] erro mqtt: ECONNREFUSED
+17:57:15 [backend] erro mqtt: ECONNREFUSED
+17:57:18 [backend] erro mqtt: ECONNREFUSED
+17:57:21 [backend] erro mqtt: ECONNREFUSED
+17:57:24 [backend] erro mqtt: ECONNREFUSED
+17:57:27 [backend] conectado ao broker (sessao anterior: nao)
+17:57:27 [backend] [rack02] status: online
+17:57:27 [backend] ALERTA - [rack02] Nó conectado ao broker
+17:57:27 [backend] [rack02] #61 gravada T=29.5 UR=44.7 I=7.5 (reenvio, atraso 30 s)
+17:57:27 [backend] [rack02] alerta retroativo (17:56:57): Temperatura 29.5 °C (atenção a partir de 27 °C)
+17:57:27 [backend] [rack02] alerta retroativo (17:56:57): Temperatura subindo 0.80 °C/min
+17:57:27 [backend] ALERTA - [rack02] Comunicação restabelecida
+17:57:27 [backend] [rack02] #62 gravada T=29.6 UR=44.7 I=7.3 (reenvio, atraso 25 s)
+17:57:27 [backend] [rack02] #63 gravada T=29.7 UR=44.6 I=7.2 (reenvio, atraso 20 s)
+17:57:27 [backend] [rack02] #64 gravada T=29.8 UR=44.6 I=7.5 (reenvio, atraso 15 s)
+17:57:27 [backend] [rack02] #65 gravada T=29.6 UR=46.2 I=7.1 (reenvio, atraso 10 s)
+17:57:27 [backend] [rack02] #66 gravada T=29.8 UR=44.3 I=7.3 (reenvio, atraso 5 s)
+17:57:27 [backend] [rack01] status: online
+17:57:27 [backend] ALERTA - [rack01] Nó conectado ao broker
+17:57:27 [backend] [rack01] #61 gravada T=23.1 UR=43.9 I=7.3 (reenvio, atraso 30 s)
+17:57:27 [backend] ALERTA - [rack01] Comunicação restabelecida
+17:57:27 [backend] [rack01] #62 gravada T=23.1 UR=45 I=7.2 (reenvio, atraso 25 s)
+17:57:27 [backend] [rack01] #63 gravada T=22.9 UR=44.6 I=7.2 (reenvio, atraso 20 s)
+17:57:27 [backend] [rack01] #64 gravada T=23.1 UR=43.2 I=7.3 (reenvio, atraso 15 s)
+17:57:27 [backend] [rack01] #65 gravada T=23 UR=46 I=7.7 (reenvio, atraso 10 s)
+17:57:27 [backend] [rack01] #66 gravada T=23 UR=43.4 I=7.5 (reenvio, atraso 5 s)
+17:57:27 [backend] [rack02] status (retido): online
+17:57:27 [backend] [rack01] status (retido): online
+17:57:27 [backend] [rack02] #67 gravada T=29.9 UR=46.7 I=7.1
+17:57:27 [backend] [rack01] #67 gravada T=23.1 UR=43.1 I=7.1
+17:57:32 [backend] [rack01] #68 gravada T=22.9 UR=46.7 I=7.3
+17:57:32 [backend] [rack02] #68 gravada T=29.8 UR=45.2 I=7.6
+17:57:37 [backend] [rack01] #69 gravada T=23 UR=43.5 I=7.6
+17:57:37 [backend] [rack02] #69 gravada T=30.1 UR=44.6 I=7.7
+17:57:42 [backend] [rack01] #70 gravada T=23.1 UR=47 I=7.8
+17:57:42 [backend] [rack02] #70 gravada T=30.2 UR=44.8 I=7.2
+17:57:47 [backend] [rack02] #71 gravada T=30.3 UR=43.1 I=7.5
+17:57:47 [backend] [rack01] #71 gravada T=23.1 UR=46.8 I=7.7
+17:57:52 [backend] [rack02] #72 gravada T=30.4 UR=43.4 I=7.6
+17:57:52 [backend] [rack01] #72 gravada T=23 UR=44.9 I=7.4
+17:57:57 [backend] [rack02] #73 gravada T=30.2 UR=43.2 I=7.1
+17:57:57 [backend] [rack01] #73 gravada T=22.9 UR=46.6 I=7.3
+17:58:02 [backend] [rack01] #74 gravada T=22.9 UR=44.5 I=7.5
+17:58:02 [backend] [rack02] #74 gravada T=30.4 UR=44 I=7.5
+17:58:07 [backend] [rack01] #75 gravada T=23.1 UR=44.6 I=7.2
+17:58:07 [backend] [rack02] #75 gravada T=30.3 UR=44.6 I=7.4
+17:58:12 [backend] [rack01] #76 gravada T=23.1 UR=46.2 I=7.3
+17:58:12 [backend] [rack02] #76 gravada T=30.4 UR=44.8 I=7.6
+17:58:17 [backend] [rack01] #77 gravada T=23.1 UR=44.6 I=7.2
+17:58:17 [backend] [rack02] #77 gravada T=30.7 UR=43.9 I=7.6
+17:58:22 [backend] [rack01] #78 gravada T=23 UR=46.1 I=7.2
+17:58:22 [backend] [rack02] #78 gravada T=30.6 UR=45.6 I=7.2
+17:58:27 [backend] [rack02] #79 gravada T=30.7 UR=43.5 I=7.8
+17:58:27 [backend] [rack01] #79 gravada T=23.1 UR=47 I=7.8
+17:58:32 [backend] [rack02] #80 gravada T=30.8 UR=45.5 I=7.8
+17:58:32 [backend] [rack01] #80 gravada T=23.1 UR=45.8 I=7.6
+17:58:37 [backend] [rack01] #81 gravada T=23.1 UR=46.3 I=7.8
+17:58:37 [backend] [rack02] #81 gravada T=30.9 UR=43.6 I=7.7
+17:58:42 [backend] [rack02] #82 gravada T=31.1 UR=46.7 I=7.7
+17:58:42 [backend] [rack01] #82 gravada T=22.9 UR=43.1 I=7.4
+17:58:47 [backend] [rack01] #83 gravada T=22.9 UR=44.9 I=7.1
+17:58:47 [backend] [rack02] #83 gravada T=31 UR=45.2 I=7.9
+17:58:52 [backend] [rack02] #84 gravada T=31 UR=45.4 I=7.3
+17:58:52 [backend] [rack01] #84 gravada T=23.1 UR=44.8 I=7.8
+17:58:57 [backend] [rack02] #85 gravada T=31.3 UR=46.8 I=7.3
+17:58:57 [backend] [rack01] #85 gravada T=22.9 UR=45.6 I=7.8
+17:59:02 [backend] [rack01] #86 gravada T=23.1 UR=45.8 I=7.7
+17:59:02 [backend] [rack02] #86 gravada T=31.2 UR=44 I=7.3
+17:59:07 [backend] [rack02] #87 gravada T=31.2 UR=45.9 I=7.1
+17:59:07 [backend] [rack01] #87 gravada T=22.9 UR=46.5 I=7.7
+17:59:12 [backend] [rack02] #88 gravada T=31.3 UR=46.9 I=7.7
+17:59:12 [backend] [rack01] #88 gravada T=22.9 UR=44.1 I=7.7
+17:59:17 [backend] [rack01] #89 gravada T=23.1 UR=44.4 I=7.8
+17:59:17 [backend] [rack02] #89 gravada T=31.3 UR=45.7 I=7.5
+17:59:22 [backend] [rack01] #90 gravada T=22.9 UR=46.9 I=7.6
+17:59:22 [backend] [rack02] #90 gravada T=31.3 UR=46.9 I=7.1
+17:59:27 [backend] [rack02] #91 gravada T=31.4 UR=44.6 I=7.6
+17:59:27 [backend] [rack01] #91 gravada T=23.1 UR=46 I=7.8
+17:59:32 [backend] [rack01] #92 gravada T=23 UR=44.1 I=7.8
+17:59:32 [backend] [rack02] #92 gravada T=31.6 UR=43.7 I=7.8
+17:59:37 [backend] [rack02] #93 gravada T=31.5 UR=47 I=7.6
+17:59:37 [backend] [rack01] #93 gravada T=23 UR=43.7 I=7.8
+17:59:42 [backend] [rack01] #94 gravada T=23 UR=44.5 I=7.1
+17:59:42 [backend] [rack02] #94 gravada T=31.7 UR=44 I=7.2
+17:59:47 [backend] [rack02] #95 gravada T=31.9 UR=46.1 I=7.8
+17:59:47 [backend] [rack01] #95 gravada T=23 UR=45 I=7.2
+17:59:52 [backend] [rack01] #96 gravada T=22.9 UR=45.9 I=7.1
+17:59:52 [backend] [rack02] #96 gravada T=31.8 UR=43.7 I=7.6
+17:59:57 [backend] [rack01] #97 gravada T=23.1 UR=45.6 I=7.2
+17:59:57 [backend] [rack02] #97 gravada T=31.9 UR=45.4 I=7.8
+18:00:02 [backend] [rack01] #98 gravada T=23.1 UR=45.5 I=7.1
+18:00:02 [backend] [rack02] #98 gravada T=32 UR=44 I=7.6
+18:00:02 [backend] ALERTA !!! [rack02] Temperatura 32 °C (crítico a partir de 32 °C)
+18:00:07 [backend] [rack01] #99 gravada T=22.9 UR=44.4 I=7.2
+18:00:07 [backend] [rack02] #99 gravada T=32 UR=44.6 I=7.7
+18:00:12 [backend] [rack02] #100 gravada T=32 UR=43.2 I=7.2
+18:00:12 [backend] [rack01] #100 gravada T=23.1 UR=43.9 I=7.7
+18:00:17 [backend] [rack01] #101 gravada T=22.9 UR=46.9 I=7.7
+18:00:17 [backend] [rack02] #101 gravada T=32.2 UR=44.6 I=7.4
+18:00:22 [backend] [rack01] #102 gravada T=23.1 UR=43.6 I=7.5
+18:00:22 [backend] [rack02] #102 gravada T=32.2 UR=44 I=7.5
+18:00:27 [backend] [rack01] #103 gravada T=22.9 UR=43.7 I=7.8
+18:00:27 [backend] [rack02] #103 gravada T=32.2 UR=45 I=7.2
+18:00:32 [backend] [rack01] #104 gravada T=22.9 UR=46.9 I=7.4
+18:00:32 [backend] [rack02] #104 gravada T=32.5 UR=46.8 I=7.5
+18:00:37 [backend] [rack02] #105 gravada T=32.4 UR=43.9 I=7.8
+18:00:37 [backend] [rack01] #105 gravada T=22.9 UR=43.4 I=7.6
+18:00:42 [backend] [rack01] #106 gravada T=22.9 UR=43.1 I=7.4
+18:00:42 [backend] [rack02] #106 gravada T=32.6 UR=46.9 I=7.1
+18:00:47 [backend] [rack01] #107 gravada T=23.1 UR=43.2 I=7.9
+18:00:47 [backend] [rack02] #107 gravada T=32.7 UR=46.7 I=7.9
+18:00:52 [backend] [rack01] #108 gravada T=23.1 UR=46.7 I=7.3
+18:00:52 [backend] [rack02] #108 gravada T=32.7 UR=45.3 I=7.2
+18:00:57 [backend] [rack02] #109 gravada T=32.6 UR=45.9 I=7.5
+18:00:57 [backend] [rack01] #109 gravada T=22.9 UR=44.1 I=7.6
+18:01:02 [backend] [rack01] #110 gravada T=23 UR=46.8 I=7.7
+18:01:02 [backend] [rack02] #110 gravada T=32.6 UR=44.5 I=7.6

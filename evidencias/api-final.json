@@ -1,0 +1,278 @@
+{
+  "/api/status": {
+    "broker": "conectado",
+    "broker_desde": 1792357047418,
+    "hora_servidor": 1792357263303
+  },
+  "/api/racks": [
+    {
+      "no": "rack01",
+      "sala": "sala01",
+      "intervalo_s": 5,
+      "status_mqtt": "online",
+      "ultima_leitura": {
+        "id": 219,
+        "no": "rack01",
+        "sala": "sala01",
+        "seq": 110,
+        "ts": 1792357262867,
+        "recebido_em": 1792357262868,
+        "temp_c": 23,
+        "umid_pct": 46.8,
+        "corrente_a": 7.7,
+        "tensao_v": 219.7,
+        "potencia_w": 1686,
+        "reenvio": 0
+      },
+      "idade_s": 0,
+      "desatualizado": false,
+      "limite_s": 15,
+      "alertas": []
+    },
+    {
+      "no": "rack02",
+      "sala": "sala01",
+      "intervalo_s": 5,
+      "status_mqtt": "online",
+      "ultima_leitura": {
+        "id": 220,
+        "no": "rack02",
+        "sala": "sala01",
+        "seq": 110,
+        "ts": 1792357262867,
+        "recebido_em": 1792357262883,
+        "temp_c": 32.6,
+        "umid_pct": 44.5,
+        "corrente_a": 7.6,
+        "tensao_v": 221.9,
+        "potencia_w": 1692,
+        "reenvio": 0
+      },
+      "idade_s": 0,
+      "desatualizado": false,
+      "limite_s": 15,
+      "alertas": [
+        {
+          "tipo": "temperatura",
+          "nivel": "critico"
+        },
+        {
+          "tipo": "taxa_temp",
+          "nivel": "atencao"
+        }
+      ]
+    }
+  ],
+  "/api/alertas?limite=100": [
+    {
+      "id": 21,
+      "no": "rack02",
+      "tipo": "temperatura",
+      "nivel": "critico",
+      "mensagem": "Temperatura 32 °C (crítico a partir de 32 °C)",
+      "ts": 1792357202783,
+      "criado_em": 1792357202813,
+      "retroativo": 0
+    },
+    {
+      "id": 20,
+      "no": "rack01",
+      "tipo": "comunicacao",
+      "nivel": "info",
+      "mensagem": "Comunicação restabelecida",
+      "ts": 1792357047575,
+      "criado_em": 1792357047589,
+      "retroativo": 0
+    },
+    {
+      "id": 19,
+      "no": "rack01",
+      "tipo": "conexao",
+      "nivel": "info",
+      "mensagem": "Nó conectado ao broker",
+      "ts": 1792357047562,
+      "criado_em": 1792357047568,
+      "retroativo": 0
+    },
+    {
+      "id": 18,
+      "no": "rack02",
+      "tipo": "comunicacao",
+      "nivel": "info",
+      "mensagem": "Comunicação restabelecida",
+      "ts": 1792357047453,
+      "criado_em": 1792357047482,
+      "retroativo": 0
+    },
+    {
+      "id": 17,
+      "no": "rack02",
+      "tipo": "taxa_temp",
+      "nivel": "atencao",
+      "mensagem": "Temperatura subindo 0.80 °C/min",
+      "ts": 1792357017577,
+      "criado_em": 1792357047453,
+      "retroativo": 1
+    },
+    {
+      "id": 16,
+      "no": "rack02",
+      "tipo": "temperatura",
+      "nivel": "atencao",
+      "mensagem": "Temperatura 29.5 °C (atenção a partir de 27 °C)",
+      "ts": 1792357017577,
+      "criado_em": 1792357047453,
+      "retroativo": 1
+    },
+    {
+      "id": 15,
+      "no": "rack02",
+      "tipo": "conexao",
+      "nivel": "info",
+      "mensagem": "Nó conectado ao broker",
+      "ts": 1792357047438,
+      "criado_em": 1792357047446,
+      "retroativo": 0
+    },
+    {
+      "id": 14,
+      "no": "rack02",
+      "tipo": "comunicacao",
+      "nivel": "critico",
+      "mensagem": "Sem leituras há 19 s (3 ciclos)",
+      "ts": 1792357031329,
+      "criado_em": 1792357031337,
+      "retroativo": 0
+    },
+    {
+      "id": 13,
+      "no": "rack01",
+      "tipo": "comunicacao",
+      "nivel": "critico",
+      "mensagem": "Sem leituras há 19 s (3 ciclos)",
+      "ts": 1792357031329,
+      "criado_em": 1792357031330,
+      "retroativo": 0
+    },
+    {
+      "id": 12,
+      "no": "rack02",
+      "tipo": "taxa_temp",
+      "nivel": "atencao",
+      "mensagem": "Temperatura subindo 0.70 °C/min",
+      "ts": 1792356912466,
+      "criado_em": 1792356926397,
+      "retroativo": 0
+    },
+    {
+      "id": 11,
+      "no": "rack02",
+      "tipo": "temperatura",
+      "nivel": "atencao",
+      "mensagem": "Temperatura 28 °C (atenção a partir de 27 °C)",
+      "ts": 1792356912466,
+      "criado_em": 1792356926390,
+      "retroativo": 0
+    },
+    {
+      "id": 10,
+      "no": "rack02",
+      "tipo": "taxa_temp",
+      "nivel": "atencao",
+      "mensagem": "Temperatura subindo 0.80 °C/min",
+      "ts": 1792356897442,
+      "criado_em": 1792356926292,
+      "retroativo": 1
+    },
+    {
+      "id": 9,
+      "no": "rack02",
+      "tipo": "temperatura",
+      "nivel": "atencao",
+      "mensagem": "Temperatura 27.9 °C (atenção a partir de 27 °C)",
+      "ts": 1792356897442,
+      "criado_em": 1792356926292,
+      "retroativo": 1
+    },
+    {
+      "id": 8,
+      "no": "rack02",
+      "tipo": "taxa_temp",
+      "nivel": "atencao",
+      "mensagem": "Temperatura subindo 0.90 °C/min",
+      "ts": 1792356837389,
+      "criado_em": 1792356837403,
+      "retroativo": 0
+    },
+    {
+      "id": 7,
+      "no": "rack01",
+      "tipo": "comunicacao",
+      "nivel": "info",
+      "mensagem": "Comunicação restabelecida",
+      "ts": 1792356837214,
+      "criado_em": 1792356837228,
+      "retroativo": 0
+    },
+    {
+      "id": 6,
+      "no": "rack01",
+      "tipo": "conexao",
+      "nivel": "info",
+      "mensagem": "Nó conectado ao broker",
+      "ts": 1792356837198,
+      "criado_em": 1792356837206,
+      "retroativo": 0
+    },
+    {
+      "id": 5,
+      "no": "rack02",
+      "tipo": "temperatura",
+      "nivel": "atencao",
+      "mensagem": "Temperatura 27 °C (atenção a partir de 27 °C)",
+      "ts": 1792356827380,
+      "criado_em": 1792356827397,
+      "retroativo": 0
+    },
+    {
+      "id": 4,
+      "no": "rack01",
+      "tipo": "comunicacao",
+      "nivel": "critico",
+      "mensagem": "Sem leituras há 19 s (3 ciclos)",
+      "ts": 1792356791148,
+      "criado_em": 1792356791149,
+      "retroativo": 0
+    },
+    {
+      "id": 3,
+      "no": "rack01",
+      "tipo": "conexao",
+      "nivel": "atencao",
+      "mensagem": "Nó perdeu a conexão com o broker (Last Will)",
+      "ts": 1792356777190,
+      "criado_em": 1792356777198,
+      "retroativo": 0
+    },
+    {
+      "id": 2,
+      "no": "rack02",
+      "tipo": "conexao",
+      "nivel": "info",
+      "mensagem": "Nó conectado ao broker",
+      "ts": 1792356717284,
+      "criado_em": 1792356717291,
+      "retroativo": 0
+    },
+    {
+      "id": 1,
+      "no": "rack01",
+      "tipo": "conexao",
+      "nivel": "info",
+      "mensagem": "Nó conectado ao broker",
+      "ts": 1792356717249,
+      "criado_em": 1792356717257,
+      "retroativo": 0
+    }
+  ]
+}

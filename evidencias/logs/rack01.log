@@ -1,0 +1,147 @@
+17:51:57 [rack01] conectado ao broker
+17:51:57 [rack01] #1 enviada T=23°C UR=44.6% I=7.4A
+17:52:02 [rack01] #2 enviada T=22.9°C UR=45.2% I=7.4A
+17:52:07 [rack01] #3 enviada T=23°C UR=45.6% I=7.8A
+17:52:12 [rack01] #4 enviada T=23.1°C UR=43.7% I=7.7A
+17:52:17 [rack01] #5 enviada T=22.9°C UR=43.1% I=7.9A
+17:52:22 [rack01] #6 enviada T=22.9°C UR=43% I=7.8A
+17:52:27 [rack01] #7 enviada T=23°C UR=43.2% I=7.5A
+17:52:32 [rack01] #8 enviada T=23°C UR=44.4% I=7.8A
+17:52:37 [rack01] #9 enviada T=23°C UR=43.3% I=7.4A
+17:52:42 [rack01] #10 enviada T=22.9°C UR=43.2% I=7.4A
+17:52:47 [rack01] #11 enviada T=23°C UR=44.2% I=7.8A
+17:52:52 [rack01] #12 enviada T=23°C UR=43.1% I=7.8A
+17:52:57 [rack01] >>> simulando queda do wifi por 60 s
+17:52:57 [rack01] #13 guardada no buffer (1 pendentes)
+17:53:02 [rack01] #14 guardada no buffer (2 pendentes)
+17:53:07 [rack01] #15 guardada no buffer (3 pendentes)
+17:53:12 [rack01] #16 guardada no buffer (4 pendentes)
+17:53:17 [rack01] #17 guardada no buffer (5 pendentes)
+17:53:22 [rack01] #18 guardada no buffer (6 pendentes)
+17:53:27 [rack01] #19 guardada no buffer (7 pendentes)
+17:53:32 [rack01] #20 guardada no buffer (8 pendentes)
+17:53:37 [rack01] #21 guardada no buffer (9 pendentes)
+17:53:42 [rack01] #22 guardada no buffer (10 pendentes)
+17:53:47 [rack01] #23 guardada no buffer (11 pendentes)
+17:53:52 [rack01] #24 guardada no buffer (12 pendentes)
+17:53:57 [rack01] >>> wifi voltou
+17:53:57 [rack01] conectado ao broker
+17:53:57 [rack01] reenviando 12 leituras do buffer
+17:53:57 [rack01] #13 enviada (reenvio) T=23.1°C UR=43.7% I=7.1A
+17:53:57 [rack01] #14 enviada (reenvio) T=23°C UR=44.7% I=7.3A
+17:53:57 [rack01] #15 enviada (reenvio) T=22.9°C UR=43.1% I=7.8A
+17:53:57 [rack01] #16 enviada (reenvio) T=22.9°C UR=45.6% I=7.4A
+17:53:57 [rack01] #17 enviada (reenvio) T=23.1°C UR=45.8% I=7.7A
+17:53:57 [rack01] #18 enviada (reenvio) T=23.1°C UR=44.5% I=7.7A
+17:53:57 [rack01] #19 enviada (reenvio) T=23.1°C UR=45.8% I=7.4A
+17:53:57 [rack01] #20 enviada (reenvio) T=23°C UR=43.6% I=7.2A
+17:53:57 [rack01] #21 enviada (reenvio) T=23.1°C UR=45.8% I=7.8A
+17:53:57 [rack01] #22 enviada (reenvio) T=22.9°C UR=44.1% I=7.4A
+17:53:57 [rack01] #23 enviada (reenvio) T=23.1°C UR=43.4% I=7.9A
+17:53:57 [rack01] #24 enviada (reenvio) T=22.9°C UR=44% I=7.7A
+17:53:57 [rack01] #25 enviada T=23°C UR=45.4% I=7.2A
+17:54:02 [rack01] #26 enviada T=22.9°C UR=43.8% I=7.2A
+17:54:07 [rack01] #27 enviada T=22.9°C UR=44.9% I=7.3A
+17:54:12 [rack01] #28 enviada T=23.1°C UR=44.5% I=7.3A
+17:54:17 [rack01] #29 enviada T=23°C UR=44.3% I=7.3A
+17:54:22 [rack01] #30 enviada T=23.1°C UR=44.5% I=7.9A
+17:54:27 [rack01] #31 enviada T=22.9°C UR=43.5% I=7.7A
+17:54:32 [rack01] #32 enviada T=23°C UR=46% I=7.4A
+17:54:37 [rack01] #33 enviada T=23.1°C UR=45.7% I=7.5A
+17:54:42 [rack01] #34 enviada T=23.1°C UR=43.4% I=7.4A
+17:54:47 [rack01] #35 enviada T=23°C UR=46.4% I=7.6A
+17:54:52 [rack01] #36 enviada T=22.9°C UR=44.9% I=7.1A
+17:54:57 [rack01] #37 enviada T=23.1°C UR=44.1% I=7.9A
+17:55:02 [rack01] #38 enviada T=23.1°C UR=43.5% I=7.4A
+17:55:07 [rack01] #39 enviada T=23.1°C UR=44.6% I=7.6A
+17:55:12 [rack01] #40 enviada T=23.1°C UR=46.7% I=7.8A
+17:55:17 [rack01] #41 enviada T=23°C UR=44% I=7.4A
+17:55:22 [rack01] #42 enviada T=23°C UR=45.9% I=7.3A
+17:55:27 [rack01] #43 enviada T=22.9°C UR=46.5% I=7.4A
+17:55:32 [rack01] #44 enviada T=23.1°C UR=45.3% I=7.6A
+17:55:37 [rack01] #45 enviada T=23°C UR=44.5% I=7.3A
+17:55:42 [rack01] #46 enviada T=23°C UR=44.1% I=7.3A
+17:55:47 [rack01] #47 enviada T=23.1°C UR=46.5% I=7.4A
+17:55:52 [rack01] #48 enviada T=22.9°C UR=44.3% I=7.2A
+17:55:57 [rack01] #49 enviada T=22.9°C UR=43.5% I=7.2A
+17:56:02 [rack01] #50 enviada T=22.9°C UR=44.4% I=7.4A
+17:56:07 [rack01] #51 enviada T=23°C UR=45.3% I=7.4A
+17:56:12 [rack01] #52 enviada T=23.1°C UR=43.8% I=7.2A
+17:56:17 [rack01] #53 enviada T=23.1°C UR=46.1% I=7.2A
+17:56:22 [rack01] #54 enviada T=23°C UR=45.3% I=7.6A
+17:56:27 [rack01] #55 enviada T=23°C UR=46% I=7.6A
+17:56:32 [rack01] #56 enviada T=23°C UR=43.2% I=7.7A
+17:56:37 [rack01] #57 enviada T=22.9°C UR=43.4% I=7.9A
+17:56:42 [rack01] #58 enviada T=23°C UR=44.2% I=7.3A
+17:56:47 [rack01] #59 enviada T=23°C UR=45.6% I=7.9A
+17:56:52 [rack01] #60 enviada T=23°C UR=45.7% I=7.6A
+17:56:54 [rack01] erro mqtt: read ECONNRESET
+17:56:54 [rack01] sem conexao com o broker
+17:56:57 [rack01] erro mqtt: ECONNREFUSED
+17:56:57 [rack01] #61 guardada no buffer (1 pendentes)
+17:57:00 [rack01] erro mqtt: ECONNREFUSED
+17:57:02 [rack01] #62 guardada no buffer (2 pendentes)
+17:57:03 [rack01] erro mqtt: ECONNREFUSED
+17:57:06 [rack01] erro mqtt: ECONNREFUSED
+17:57:07 [rack01] #63 guardada no buffer (3 pendentes)
+17:57:09 [rack01] erro mqtt: ECONNREFUSED
+17:57:12 [rack01] erro mqtt: ECONNREFUSED
+17:57:12 [rack01] #64 guardada no buffer (4 pendentes)
+17:57:15 [rack01] erro mqtt: ECONNREFUSED
+17:57:17 [rack01] #65 guardada no buffer (5 pendentes)
+17:57:18 [rack01] erro mqtt: ECONNREFUSED
+17:57:21 [rack01] erro mqtt: ECONNREFUSED
+17:57:22 [rack01] #66 guardada no buffer (6 pendentes)
+17:57:24 [rack01] erro mqtt: ECONNREFUSED
+17:57:27 [rack01] conectado ao broker
+17:57:27 [rack01] reenviando 6 leituras do buffer
+17:57:27 [rack01] #61 enviada (reenvio) T=23.1°C UR=43.9% I=7.3A
+17:57:27 [rack01] #62 enviada (reenvio) T=23.1°C UR=45% I=7.2A
+17:57:27 [rack01] #63 enviada (reenvio) T=22.9°C UR=44.6% I=7.2A
+17:57:27 [rack01] #64 enviada (reenvio) T=23.1°C UR=43.2% I=7.3A
+17:57:27 [rack01] #65 enviada (reenvio) T=23°C UR=46% I=7.7A
+17:57:27 [rack01] #66 enviada (reenvio) T=23°C UR=43.4% I=7.5A
+17:57:27 [rack01] #67 enviada T=23.1°C UR=43.1% I=7.1A
+17:57:32 [rack01] #68 enviada T=22.9°C UR=46.7% I=7.3A
+17:57:37 [rack01] #69 enviada T=23°C UR=43.5% I=7.6A
+17:57:42 [rack01] #70 enviada T=23.1°C UR=47% I=7.8A
+17:57:47 [rack01] #71 enviada T=23.1°C UR=46.8% I=7.7A
+17:57:52 [rack01] #72 enviada T=23°C UR=44.9% I=7.4A
+17:57:57 [rack01] #73 enviada T=22.9°C UR=46.6% I=7.3A
+17:58:02 [rack01] #74 enviada T=22.9°C UR=44.5% I=7.5A
+17:58:07 [rack01] #75 enviada T=23.1°C UR=44.6% I=7.2A
+17:58:12 [rack01] #76 enviada T=23.1°C UR=46.2% I=7.3A
+17:58:17 [rack01] #77 enviada T=23.1°C UR=44.6% I=7.2A
+17:58:22 [rack01] #78 enviada T=23°C UR=46.1% I=7.2A
+17:58:27 [rack01] #79 enviada T=23.1°C UR=47% I=7.8A
+17:58:32 [rack01] #80 enviada T=23.1°C UR=45.8% I=7.6A
+17:58:37 [rack01] #81 enviada T=23.1°C UR=46.3% I=7.8A
+17:58:42 [rack01] #82 enviada T=22.9°C UR=43.1% I=7.4A
+17:58:47 [rack01] #83 enviada T=22.9°C UR=44.9% I=7.1A
+17:58:52 [rack01] #84 enviada T=23.1°C UR=44.8% I=7.8A
+17:58:57 [rack01] #85 enviada T=22.9°C UR=45.6% I=7.8A
+17:59:02 [rack01] #86 enviada T=23.1°C UR=45.8% I=7.7A
+17:59:07 [rack01] #87 enviada T=22.9°C UR=46.5% I=7.7A
+17:59:12 [rack01] #88 enviada T=22.9°C UR=44.1% I=7.7A
+17:59:17 [rack01] #89 enviada T=23.1°C UR=44.4% I=7.8A
+17:59:22 [rack01] #90 enviada T=22.9°C UR=46.9% I=7.6A
+17:59:27 [rack01] #91 enviada T=23.1°C UR=46% I=7.8A
+17:59:32 [rack01] #92 enviada T=23°C UR=44.1% I=7.8A
+17:59:37 [rack01] #93 enviada T=23°C UR=43.7% I=7.8A
+17:59:42 [rack01] #94 enviada T=23°C UR=44.5% I=7.1A
+17:59:47 [rack01] #95 enviada T=23°C UR=45% I=7.2A
+17:59:52 [rack01] #96 enviada T=22.9°C UR=45.9% I=7.1A
+17:59:57 [rack01] #97 enviada T=23.1°C UR=45.6% I=7.2A
+18:00:02 [rack01] #98 enviada T=23.1°C UR=45.5% I=7.1A
+18:00:07 [rack01] #99 enviada T=22.9°C UR=44.4% I=7.2A
+18:00:12 [rack01] #100 enviada T=23.1°C UR=43.9% I=7.7A
+18:00:17 [rack01] #101 enviada T=22.9°C UR=46.9% I=7.7A
+18:00:22 [rack01] #102 enviada T=23.1°C UR=43.6% I=7.5A
+18:00:27 [rack01] #103 enviada T=22.9°C UR=43.7% I=7.8A
+18:00:32 [rack01] #104 enviada T=22.9°C UR=46.9% I=7.4A
+18:00:37 [rack01] #105 enviada T=22.9°C UR=43.4% I=7.6A
+18:00:42 [rack01] #106 enviada T=22.9°C UR=43.1% I=7.4A
+18:00:47 [rack01] #107 enviada T=23.1°C UR=43.2% I=7.9A
+18:00:52 [rack01] #108 enviada T=23.1°C UR=46.7% I=7.3A
+18:00:57 [rack01] #109 enviada T=22.9°C UR=44.1% I=7.6A
+18:01:02 [rack01] #110 enviada T=23°C UR=46.8% I=7.7A

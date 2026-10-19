@@ -1,0 +1,20 @@
+{
+  "name": "monitoramento-datacenter",
+  "version": "1.0.0",
+  "main": "src/backend/index.js",
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "broker": "node src/broker-dev.js",
+    "backend": "node --disable-warning=ExperimentalWarning src/backend/index.js",
+    "rack01": "node src/simulador/esp32-sim.js --rack rack01",
+    "rack02": "node src/simulador/esp32-sim.js --rack rack02 --cenario falha-ar"
+  },
+  "author": "Grupo 04",
+  "license": "ISC",
+  "description": "Projeto Integrador - monitoramento de sala de servidores (ESP32 -> MQTT -> backend)",
+  "dependencies": {
+    "aedes": "^1.2.0",
+    "express": "^5.2.1",
+    "mqtt": "^5.16.1"
+  }
+}

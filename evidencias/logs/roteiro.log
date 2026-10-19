@@ -1,0 +1,14 @@
+17:51:54 (t=  0s) inicio do roteiro
+17:51:56 (t=  3s) broker, backend, rack01 (normal, intervalo 5 s, queda de wifi em 60 s por 60 s) e rack02 (falha de ar) iniciados
+17:52:45 (t= 51s) screenshot 01-operacao-normal.png - dois racks publicando
+17:53:27 (t= 93s) screenshot 02-queda-wifi-rack01.png - rack01 sem wifi ha ~30 s, watchdog marcou desatualizado
+17:54:07 (t=133s) screenshot 03-wifi-voltou-reenvio.png - rack01 voltou e reenviou o buffer
+17:54:54 (t=180s) >>> matando o processo do backend (simula queda do servidor de aplicacao)
+17:55:10 (t=196s) screenshot 04-backend-fora.png - painel aberto sem resposta do servidor
+17:55:25 (t=211s) >>> backend reiniciado
+17:55:37 (t=223s) screenshot 05-backend-voltou.png - backend recebeu do broker as mensagens guardadas
+17:56:54 (t=300s) >>> matando o broker MQTT
+17:57:10 (t=316s) screenshot 06-broker-fora.png - backend sem broker, aviso no painel
+17:57:25 (t=331s) >>> broker reiniciado
+18:01:03 (t=549s) screenshot 07-rack02-critico.png - rack02 com falha de ar chegou no critico
+18:01:03 (t=549s) fim do roteiro

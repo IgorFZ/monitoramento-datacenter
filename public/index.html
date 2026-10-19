@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monitoramento Sala de Servidores</title>
+<style>
+  body { font-family: Segoe UI, Arial, sans-serif; margin: 0; background: #f2f4f7; color: #222; }
+  header { background: #1f3b57; color: #fff; padding: 12px 20px; }
+  header h1 { margin: 0; font-size: 20px; }
+  #info { font-size: 13px; opacity: .85; margin-top: 4px; }
+  main { padding: 16px 20px; max-width: 1100px; }
+  .aviso { padding: 10px 14px; border-radius: 4px; margin-bottom: 12px; display: none; }
+  .aviso.erro { background: #fde2e1; border: 1px solid #e0a3a0; color: #8a1f17; }
+  .aviso.atencao { background: #fff4d6; border: 1px solid #e6cf8a; color: #6b5100; }
+  #racks { display: flex; flex-wrap: wrap; gap: 12px; }
+  .rack { background: #fff; border-radius: 6px; padding: 12px 16px; width: 250px; border-left: 6px solid #3a9d5d; cursor: pointer; box-shadow: 0 1px 2px #0002; }
+  .rack.atencao { border-left-color: #e0a100; }
+  .rack.critico { border-left-color: #d0352b; }
+  .rack.desatualizado { border-left-color: #999; background: #e9e9e9; color: #666; }
+  .rack h2 { margin: 0 0 6px; font-size: 17px; }
+  .rack .valores { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 10px; font-size: 14px; }
+  .rack .valores b { font-size: 18px; }
+  .rack .rodape { font-size: 12px; margin-top: 8px; }
+  .tag { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 3px; background: #ddd; margin-right: 4px; }
+  .tag.critico { background: #d0352b; color: #fff; }
+  .tag.atencao { background: #e0a100; color: #fff; }
+  .tag.velho { background: #666; color: #fff; }
+  h3 { margin: 22px 0 8px; font-size: 16px; }
+  table { border-collapse: collapse; width: 100%; background: #fff; font-size: 13px; }
+  th, td { padding: 5px 8px; border-bottom: 1px solid #e3e3e3; text-align: left; }
+  th { background: #e8ecf1; }
+  tr.critico td { color: #b3261e; }
+  tr.atencao td { color: #8a6500; }
+  tr.reenvio td { background: #f6f3e6; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Monitoramento da sala de servidores</h1>
+  <div id="info">carregando...</div>
+</header>
+<main>
+  <div id="avisoServidor" class="aviso erro"></div>
+  <div id="avisoBroker" class="aviso atencao"></div>
+
+  <div id="racks"></div>
+
+  <h3>Últimas leituras <span id="rackSel"></span></h3>
+  <table>
+    <thead><tr><th>#</th><th>Medido em</th><th>Recebido em</th><th>Temp (°C)</th><th>UR (%)</th><th>Corrente (A)</th><th>Potência (W)</th><th></th></tr></thead>
+    <tbody id="leituras"></tbody>
+  </table>
+
+  <h3>Alertas</h3>
+  <table>
+    <thead><tr><th>Quando</th><th>Rack</th><th>Nível</th><th>Mensagem</th></tr></thead>
+    <tbody id="alertas"></tbody>
+  </table>
+</main>
+
+<script>
+let selecionado = null;
+let ultimoOk = null;
+
+const hora = (ms) => new Date(ms).toLocaleTimeString('pt-BR');
+
+function tempoAtras(s) {
+  if (s < 60) return s + ' s';
+  const m = Math.floor(s / 60);
+  if (m < 60) return m + ' min ' + (s % 60) + ' s';
+  return Math.floor(m / 60) + ' h ' + (m % 60) + ' min';
+}
+
+async function atualizar() {
+  try {
+    const [status, racks, alertas] = await Promise.all([
+      fetch('/api/status').then(r => r.json()),
+      fetch('/api/racks').then(r => r.json()),
+      fetch('/api/alertas?limite=15').then(r => r.json()),
+    ]);
+    ultimoOk = Date.now();
+    document.getElementById('avisoServidor').style.display = 'none';
+
+    const avisoBroker = document.getElementById('avisoBroker');
+    if (status.broker !== 'conectado') {
+      avisoBroker.textContent = 'O servidor perdeu a conexão com o broker MQTT às ' + hora(status.broker_desde) +
+        '. Os valores abaixo podem estar desatualizados até a conexão voltar.';
+      avisoBroker.style.display = 'block';
+    } else {
+      avisoBroker.style.display = 'none';
+    }
+
+    document.getElementById('info').textContent =
+      'Broker: ' + status.broker + ' | atualizado às ' + hora(status.hora_servidor);
+
+    desenharRacks(racks);
+    desenharAlertas(alertas);
+    if (!selecionado && racks.length) selecionado = racks[0].no;
+    if (selecionado) await carregarLeituras(selecionado);
+  } catch (e) {
+    const aviso = document.getElementById('avisoServidor');
+    aviso.textContent = 'Sem conexão com o servidor. ' +
+      (ultimoOk ? 'Os dados na tela são de ' + hora(ultimoOk) + ' e não estão sendo atualizados.' : '');
+    aviso.style.display = 'block';
+    document.querySelectorAll('.rack').forEach(el => el.classList.add('desatualizado'));
+  }
+}
+
+function desenharRacks(racks) {
+  const div = document.getElementById('racks');
+  div.innerHTML = '';
+  for (const r of racks) {
+    const l = r.ultima_leitura || {};
+    let classe = '';
+    if (r.alertas.some(a => a.nivel === 'critico')) classe = 'critico';
+    else if (r.alertas.length) classe = 'atencao';
+    if (r.desatualizado) classe = 'desatualizado';
+
+    let tags = r.alertas.map(a => `<span class="tag ${a.nivel}">${a.tipo}</span>`).join('');
+    if (r.desatualizado) tags = '<span class="tag velho">DADO DESATUALIZADO</span>' + tags;
+
+    const el = document.createElement('div');
+    el.className = 'rack ' + classe;
+    el.innerHTML = `
+      <h2>${r.no} <small style="font-weight:normal;font-size:12px">(${r.sala || '-'})</small></h2>
+      <div class="valores">
+        <div>Temp<br><b>${l.temp_c ?? '--'} °C</b></div>
+        <div>Umidade<br><b>${l.umid_pct ?? '--'} %</b></div>
+        <div>Corrente<br><b>${l.corrente_a ?? '--'} A</b></div>
+        <div>Potência<br><b>${l.potencia_w ?? '--'} W</b></div>
+      </div>
+      <div class="rodape">${tags}<br>
+        Última leitura há ${r.idade_s === null ? '--' : tempoAtras(r.idade_s)}
+        ${r.ultima_leitura ? '(' + hora(l.ts) + ')' : ''} · MQTT: ${r.status_mqtt || '?'}
+      </div>`;
+    el.onclick = () => { selecionado = r.no; carregarLeituras(r.no); };
+    div.appendChild(el);
+  }
+}
+
+async function carregarLeituras(no) {
+  const lista = await fetch('/api/racks/' + no + '/leituras?limite=12').then(r => r.json());
+  document.getElementById('rackSel').textContent = '- ' + no;
+  document.getElementById('leituras').innerHTML = lista.map(l => `
+    <tr class="${l.reenvio ? 'reenvio' : ''}">
+      <td>${l.seq}</td><td>${hora(l.ts)}</td><td>${hora(l.recebido_em)}</td>
+      <td>${l.temp_c}</td><td>${l.umid_pct}</td><td>${l.corrente_a}</td><td>${l.potencia_w}</td>
+      <td>${l.reenvio ? 'reenviada' : ''}</td>
+    </tr>`).join('');
+}
+
+function desenharAlertas(lista) {
+  document.getElementById('alertas').innerHTML = lista.map(a => `
+    <tr class="${a.nivel}">
+      <td>${hora(a.ts)}${a.retroativo ? ' (retroativo)' : ''}</td><td>${a.no}</td><td>${a.nivel}</td><td>${a.mensagem}</td>
+    </tr>`).join('');
+}
+
+atualizar();
+setInterval(atualizar, 5000);
+</script>
+</body>
+</html>

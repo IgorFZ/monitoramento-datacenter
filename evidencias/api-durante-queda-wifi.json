@@ -1,0 +1,99 @@
+{
+  "/api/status": {
+    "broker": "conectado",
+    "broker_desde": 1792356716101,
+    "hora_servidor": 1792356807626
+  },
+  "/api/racks": [
+    {
+      "no": "rack01",
+      "sala": "sala01",
+      "intervalo_s": 5,
+      "status_mqtt": "offline",
+      "ultima_leitura": {
+        "id": 23,
+        "no": "rack01",
+        "sala": "sala01",
+        "seq": 12,
+        "ts": 1792356772315,
+        "recebido_em": 1792356772305,
+        "temp_c": 23,
+        "umid_pct": 43.1,
+        "corrente_a": 7.8,
+        "tensao_v": 219.6,
+        "potencia_w": 1704,
+        "reenvio": 0
+      },
+      "idade_s": 35,
+      "desatualizado": true,
+      "limite_s": 15,
+      "alertas": []
+    },
+    {
+      "no": "rack02",
+      "sala": "sala01",
+      "intervalo_s": 5,
+      "status_mqtt": "online",
+      "ultima_leitura": {
+        "id": 31,
+        "no": "rack02",
+        "sala": "sala01",
+        "seq": 19,
+        "ts": 1792356807357,
+        "recebido_em": 1792356807358,
+        "temp_c": 26.7,
+        "umid_pct": 45.4,
+        "corrente_a": 7.4,
+        "tensao_v": 219.7,
+        "potencia_w": 1628,
+        "reenvio": 0
+      },
+      "idade_s": 0,
+      "desatualizado": false,
+      "limite_s": 15,
+      "alertas": []
+    }
+  ],
+  "/api/alertas?limite=100": [
+    {
+      "id": 4,
+      "no": "rack01",
+      "tipo": "comunicacao",
+      "nivel": "critico",
+      "mensagem": "Sem leituras há 19 s (3 ciclos)",
+      "ts": 1792356791148,
+      "criado_em": 1792356791149,
+      "retroativo": 0
+    },
+    {
+      "id": 3,
+      "no": "rack01",
+      "tipo": "conexao",
+      "nivel": "atencao",
+      "mensagem": "Nó perdeu a conexão com o broker (Last Will)",
+      "ts": 1792356777190,
+      "criado_em": 1792356777198,
+      "retroativo": 0
+    },
+    {
+      "id": 2,
+      "no": "rack02",
+      "tipo": "conexao",
+      "nivel": "info",
+      "mensagem": "Nó conectado ao broker",
+      "ts": 1792356717284,
+      "criado_em": 1792356717291,
+      "retroativo": 0
+    },
+    {
+      "id": 1,
+      "no": "rack01",
+      "tipo": "conexao",
+      "nivel": "info",
+      "mensagem": "Nó conectado ao broker",
+      "ts": 1792356717249,
+      "criado_em": 1792356717257,
+      "retroativo": 0
+    }
+  ]
+}
