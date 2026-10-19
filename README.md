@@ -14,7 +14,7 @@ ESP32 (simulado)  --MQTT/QoS1-->  Broker  --MQTT-->  Backend  -->  SQLite
                                                         +--> API REST --> Painel web
 ```
 
-- `src/simulador/esp32-sim.js` faz o papel do nó do rack. Gera temperatura, umidade e corrente, publica a cada N segundos e guarda as leituras num buffer quando perde a conexão.
+- `src/simulador/esp32-sim.js` faz o papel do nó ESP32 do rack. O projeto não inclui montagem física, então cada rack é um processo do simulador: gera temperatura, umidade e corrente, publica a cada N segundos e guarda as leituras num buffer quando perde a conexão.
 - `src/backend/` assina os tópicos, grava no banco, avalia os limiares, vigia o heartbeat dos racks e expõe a API.
 - `public/index.html` é o painel que mostra os racks, as últimas leituras e os alertas.
 - `src/broker-dev.js` é um broker MQTT em Node (aedes) para rodar sem Docker. O broker previsto na arquitetura é o Mosquitto (`docker-compose.yml`).
@@ -109,5 +109,4 @@ Na pasta `evidencias/` estão os prints do painel e os logs de cada componente d
 
 - envio dos alertas por Telegram/e-mail (hoje só grava no banco e mostra no log/painel)
 - trocar o SQLite pelo banco de séries temporais
-- firmware real do ESP32 (o simulador já usa o mesmo formato de tópico e de JSON)
 - autenticação no broker

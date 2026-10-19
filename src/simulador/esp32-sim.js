@@ -1,7 +1,7 @@
 // Simulador do no ESP32 de um rack.
-// Faz o mesmo papel que o firmware vai fazer: le os "sensores", monta o JSON
-// e publica no broker. Se a conexao cair, guarda as leituras num buffer e
-// reenvia quando voltar.
+// O projeto nao tem montagem fisica, entao este processo faz o papel do no:
+// gera as leituras dos "sensores", monta o JSON e publica no broker. Se a
+// conexao cair, guarda as leituras num buffer e reenvia quando voltar.
 //
 // uso: node src/simulador/esp32-sim.js --rack rack01 [--intervalo 30] [--temp 23] [--cenario normal|falha-ar|sobrecarga]
 //      [--queda 60,90]  -> derruba o "wifi" aos 60 s por 90 s (para testar falha)
@@ -54,8 +54,8 @@ client.on('connect', () => {
   client.publish(`${base}/status`, JSON.stringify({ no: rack, estado: 'online', ts: new Date().toISOString() }), { qos: 1, retain: true });
   esvaziarBuffer();
 
-  // o ESP32 so comeca a medir depois de conectar a primeira vez, porque
-  // precisa do NTP para ter a hora certa na leitura
+  // so comeca a medir depois de conectar a primeira vez. Num ESP32 esse
+  // seria o momento de acertar o relogio pelo NTP
   if (!iniciado) {
     iniciado = true;
     setInterval(ciclo, intervalo * 1000);
@@ -156,7 +156,7 @@ function lerSensores() {
     no: rack,
     sala,
     seq,
-    ts: new Date().toISOString(), // hora do no (no ESP32 vem do NTP)
+    ts: new Date().toISOString(), // hora do no (relogio do computador, sincronizado por NTP)
     intervalo_s: intervalo,
     temp_c: arred(temp),
     umid_pct: arred(45 + ruido(2)),
