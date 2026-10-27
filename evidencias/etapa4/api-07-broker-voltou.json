@@ -1,0 +1,50 @@
+[
+  {
+    "no": "rack01",
+    "sala": "sala01",
+    "intervalo_s": 5,
+    "status_mqtt": "online",
+    "ultima_leitura": {
+      "id": 50,
+      "no": "rack01",
+      "sala": "sala01",
+      "seq": 25,
+      "ts": 1793059825843,
+      "recebido_em": 1793059825862,
+      "temp_c": 23,
+      "umid_pct": 44.1,
+      "corrente_a": 7.6,
+      "tensao_v": 220.9,
+      "potencia_w": 1677,
+      "reenvio": 0
+    },
+    "idade_s": 4,
+    "desatualizado": false,
+    "limite_s": 15,
+    "alertas": []
+  },
+  {
+    "no": "rack02",
+    "sala": "sala01",
+    "intervalo_s": 5,
+    "status_mqtt": "online",
+    "ultima_leitura": {
+      "id": 49,
+      "no": "rack02",
+      "sala": "sala01",
+      "seq": 25,
+      "ts": 1793059825843,
+      "recebido_em": 1793059825844,
+      "temp_c": 22.9,
+      "umid_pct": 46.4,
+      "corrente_a": 7.8,
+      "tensao_v": 220.2,
+      "potencia_w": 1713,
+      "reenvio": 0
+    },
+    "idade_s": 4,
+    "desatualizado": false,
+    "limite_s": 15,
+    "alertas": []
+  }
+]

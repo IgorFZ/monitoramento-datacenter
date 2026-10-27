@@ -1,5 +1,13 @@
 // Configuracoes gerais. Tudo pode ser trocado por variavel de ambiente.
+const fs = require('node:fs');
+const mqttOptions = {
+  ...(process.env.MQTT_USERNAME ? { username: process.env.MQTT_USERNAME } : {}),
+  ...(process.env.MQTT_PASSWORD ? { password: process.env.MQTT_PASSWORD } : {}),
+  ...(process.env.MQTT_CA_FILE ? { ca: fs.readFileSync(process.env.MQTT_CA_FILE) } : {}),
+  rejectUnauthorized: true,
+};
 module.exports = {
+  mqttOptions,
   mqttUrl: process.env.MQTT_URL || 'mqtt://localhost:1883',
   sala: process.env.SALA || 'sala01',
   porta: Number(process.env.PORTA || 3000),

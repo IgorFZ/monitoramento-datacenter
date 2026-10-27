@@ -35,6 +35,7 @@ let correnteExtra = 0;
 let ultimaLeitura = Date.now();
 
 const client = mqtt.connect(config.mqttUrl, {
+  ...config.mqttOptions,
   clientId: `esp32-${sala}-${rack}`,
   keepalive: 15,
   reconnectPeriod: 3000,

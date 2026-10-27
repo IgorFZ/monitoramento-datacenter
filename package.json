@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "src/backend/index.js",
   "scripts": {
+    "test": "node --test tests/*.test.js",
     "dev": "node scripts/dev.js",
     "broker": "node src/broker-dev.js",
     "backend": "node --disable-warning=ExperimentalWarning src/backend/index.js",

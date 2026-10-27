@@ -1,0 +1,226 @@
+21:08:23 [broker] broker de desenvolvimento em loopback, porta 1883
+21:08:25 [backend] API e painel em http://localhost:3000
+21:08:25 [broker] conectou: backend-ingestao
+21:08:25 [backend] conectado ao broker (sessao anterior: nao)
+
+Teclas:
+  1 / 2   derruba ou religa o Wi-Fi do rack01 / rack02
+  3 / 4   para ou religa o ar-condicionado do rack01 / rack02
+  5 / 6   liga ou desliga a sobrecarga eletrica no rack01 / rack02
+  b       derruba ou sobe o backend
+  m       derruba ou sobe o broker
+  h       mostra este menu
+  q       encerra tudo
+Painel: http://localhost:3000   (leituras a cada 5 s)
+
+21:08:25 [broker] conectou: esp32-sala01-rack01
+21:08:25 [broker] conectou: esp32-sala01-rack02
+21:08:25 [rack01] conectado ao broker
+21:08:25 [rack01] #1 enviada T=22.9°C UR=46.9% I=7.2A
+21:08:25 [rack02] conectado ao broker
+21:08:25 [rack02] #1 enviada T=22.9°C UR=45.2% I=7.8A
+21:08:25 [backend] [rack01] status: online
+21:08:25 [backend] ALERTA - [rack01] Nó conectado ao broker
+21:08:25 [backend] [rack01] #1 gravada T=22.9 UR=46.9 I=7.2
+21:08:25 [backend] [rack02] status: online
+21:08:25 [backend] ALERTA - [rack02] Nó conectado ao broker
+21:08:25 [backend] [rack02] #1 gravada T=22.9 UR=45.2 I=7.8
+21:08:30 [rack02] #2 enviada T=23.1°C UR=44.4% I=7.2A
+21:08:30 [rack01] #2 enviada T=23°C UR=45.5% I=7.6A
+21:08:30 [backend] [rack02] #2 gravada T=23.1 UR=44.4 I=7.2
+21:08:30 [backend] [rack01] #2 gravada T=23 UR=45.5 I=7.6
+21:08:35 [rack01] #3 enviada T=23°C UR=45.7% I=7.9A
+21:08:35 [rack02] #3 enviada T=22.9°C UR=43.8% I=7.1A
+21:08:35 [backend] [rack01] #3 gravada T=23 UR=45.7 I=7.9
+21:08:35 [backend] [rack02] #3 gravada T=22.9 UR=43.8 I=7.1
+21:08:40 [rack01] #4 enviada T=23°C UR=44.3% I=7.3A
+21:08:40 [rack02] #4 enviada T=23.1°C UR=43.6% I=7.8A
+21:08:40 [backend] [rack01] #4 gravada T=23 UR=44.3 I=7.3
+21:08:40 [backend] [rack02] #4 gravada T=23.1 UR=43.6 I=7.8
+21:08:45 [rack02] #5 enviada T=23°C UR=46.7% I=7.1A
+21:08:45 [rack01] #5 enviada T=22.9°C UR=44.5% I=7.3A
+21:08:45 [backend] [rack02] #5 gravada T=23 UR=46.7 I=7.1
+21:08:45 [backend] [rack01] #5 gravada T=22.9 UR=44.5 I=7.3
+21:08:50 [rack01] #6 enviada T=22.9°C UR=44.5% I=7.1A
+21:08:50 [rack02] #6 enviada T=22.9°C UR=46.2% I=7.7A
+21:08:50 [backend] [rack01] #6 gravada T=22.9 UR=44.5 I=7.1
+21:08:50 [backend] [rack02] #6 gravada T=22.9 UR=46.2 I=7.7
+
+### tecla 1 (21:08:50)
+21:08:50 [rack01] >>> wifi CAIU
+21:08:50 [broker] desconectou: esp32-sala01-rack01
+21:08:50 [backend] [rack01] status: offline
+21:08:50 [backend] ALERTA ! [rack01] Nó perdeu a conexão com o broker (Last Will)
+21:08:55 [rack01] #7 guardada no buffer (1 pendentes)
+21:08:55 [rack02] #7 enviada T=22.9°C UR=44.6% I=7.3A
+21:08:55 [backend] [rack02] #7 gravada T=22.9 UR=44.6 I=7.3
+21:09:00 [rack01] #8 guardada no buffer (2 pendentes)
+21:09:00 [rack02] #8 enviada T=23°C UR=44.8% I=7.2A
+21:09:00 [backend] [rack02] #8 gravada T=23 UR=44.8 I=7.2
+21:09:05 [rack01] #9 guardada no buffer (3 pendentes)
+21:09:05 [rack02] #9 enviada T=23°C UR=45.9% I=7.6A
+21:09:05 [backend] [rack02] #9 gravada T=23 UR=45.9 I=7.6
+21:09:10 [backend] ALERTA !!! [rack01] Sem leituras há 19 s (3 ciclos)
+21:09:10 [rack01] #10 guardada no buffer (4 pendentes)
+21:09:10 [rack02] #10 enviada T=23°C UR=43.6% I=7.6A
+21:09:10 [backend] [rack02] #10 gravada T=23 UR=43.6 I=7.6
+21:09:15 [rack01] #11 guardada no buffer (5 pendentes)
+21:09:15 [rack02] #11 enviada T=23°C UR=44.6% I=7.6A
+21:09:15 [backend] [rack02] #11 gravada T=23 UR=44.6 I=7.6
+
+### tecla 1 (21:09:16)
+21:09:16 [rack01] >>> wifi voltou
+21:09:16 [broker] conectou: esp32-sala01-rack01
+21:09:16 [rack01] conectado ao broker
+21:09:16 [rack01] reenviando 5 leituras do buffer
+21:09:16 [rack01] #7 enviada (reenvio) T=22.9°C UR=46.2% I=7.2A
+21:09:16 [rack01] #8 enviada (reenvio) T=22.9°C UR=45.8% I=7.6A
+21:09:16 [rack01] #9 enviada (reenvio) T=22.9°C UR=44.5% I=7.4A
+21:09:16 [rack01] #10 enviada (reenvio) T=23.1°C UR=45.4% I=7.3A
+21:09:16 [rack01] #11 enviada (reenvio) T=22.9°C UR=46.3% I=7.4A
+21:09:16 [backend] [rack01] status: online
+21:09:16 [backend] ALERTA - [rack01] Nó conectado ao broker
+21:09:16 [backend] [rack01] #7 gravada T=22.9 UR=46.2 I=7.2 (reenvio, atraso 20 s)
+21:09:16 [backend] [rack01] #8 gravada T=22.9 UR=45.8 I=7.6 (reenvio, atraso 15 s)
+21:09:16 [backend] [rack01] #9 gravada T=22.9 UR=44.5 I=7.4 (reenvio, atraso 10 s)
+21:09:16 [backend] ALERTA - [rack01] Comunicação restabelecida
+21:09:16 [backend] [rack01] #10 gravada T=23.1 UR=45.4 I=7.3 (reenvio, atraso 5 s)
+21:09:16 [backend] [rack01] #11 gravada T=22.9 UR=46.3 I=7.4 (reenvio, atraso 0 s)
+21:09:20 [rack01] #12 enviada T=22.9°C UR=46.2% I=7.5A
+21:09:20 [rack02] #12 enviada T=23.1°C UR=43.7% I=7.4A
+21:09:20 [backend] [rack01] #12 gravada T=22.9 UR=46.2 I=7.5
+21:09:20 [backend] [rack02] #12 gravada T=23.1 UR=43.7 I=7.4
+21:09:25 [rack02] #13 enviada T=23.1°C UR=43.6% I=7.2A
+21:09:25 [rack01] #13 enviada T=22.9°C UR=45.2% I=7.4A
+21:09:25 [backend] [rack02] #13 gravada T=23.1 UR=43.6 I=7.2
+21:09:25 [backend] [rack01] #13 gravada T=22.9 UR=45.2 I=7.4
+
+### tecla b (21:09:28)
+>>> derrubando o backend
+21:09:28 [broker] desconectou: backend-ingestao
+21:09:30 [rack01] #14 enviada T=22.9°C UR=43.1% I=7.5A
+21:09:30 [rack02] #14 enviada T=22.9°C UR=43.3% I=7.7A
+21:09:35 [rack02] #15 enviada T=23.1°C UR=46.3% I=7.3A
+21:09:35 [rack01] #15 enviada T=23°C UR=44.4% I=7.2A
+
+### tecla b (21:09:38)
+>>> subindo o backend de novo
+21:09:38 [backend] API e painel em http://localhost:3000
+21:09:38 [broker] conectou: backend-ingestao
+21:09:38 [backend] conectado ao broker (sessao anterior: sim)
+21:09:38 [backend] [rack01] #14 gravada T=22.9 UR=43.1 I=7.5
+21:09:38 [backend] [rack02] #14 gravada T=22.9 UR=43.3 I=7.7
+21:09:38 [backend] [rack02] #15 gravada T=23.1 UR=46.3 I=7.3
+21:09:38 [backend] [rack01] #15 gravada T=23 UR=44.4 I=7.2
+21:09:38 [backend] [rack01] status (retido): online
+21:09:38 [backend] [rack02] status (retido): online
+21:09:40 [rack01] #16 enviada T=23°C UR=45.9% I=7.8A
+21:09:40 [rack02] #16 enviada T=22.9°C UR=44.3% I=7.1A
+21:09:40 [backend] [rack01] #16 gravada T=23 UR=45.9 I=7.8
+21:09:40 [backend] [rack02] #16 gravada T=22.9 UR=44.3 I=7.1
+21:09:45 [rack02] #17 enviada T=23°C UR=44.8% I=7.1A
+21:09:45 [rack01] #17 enviada T=22.9°C UR=46.6% I=7.4A
+21:09:45 [backend] [rack02] #17 gravada T=23 UR=44.8 I=7.1
+21:09:45 [backend] [rack01] #17 gravada T=22.9 UR=46.6 I=7.4
+
+### tecla m (21:09:50)
+>>> derrubando o broker
+21:09:50 [rack01] erro mqtt: read ECONNRESET
+21:09:50 [backend] erro mqtt: read ECONNRESET
+21:09:50 [rack01] sem conexao com o broker
+21:09:50 [rack02] erro mqtt: read ECONNRESET
+21:09:50 [backend] comunicacao com o broker interrompida
+21:09:50 [backend] sem conexao com o broker, tentando de novo...
+21:09:50 [rack02] sem conexao com o broker
+21:09:50 [rack01] #18 guardada no buffer (1 pendentes)
+21:09:50 [rack02] #18 guardada no buffer (1 pendentes)
+21:09:53 [rack01] erro mqtt: ECONNREFUSED
+21:09:53 [rack02] erro mqtt: ECONNREFUSED
+21:09:53 [backend] erro mqtt: ECONNREFUSED
+21:09:55 [rack01] #19 guardada no buffer (2 pendentes)
+21:09:55 [rack02] #19 guardada no buffer (2 pendentes)
+21:09:56 [rack01] erro mqtt: ECONNREFUSED
+21:09:56 [rack02] erro mqtt: ECONNREFUSED
+21:09:56 [backend] erro mqtt: ECONNREFUSED
+21:09:59 [rack02] erro mqtt: ECONNREFUSED
+21:09:59 [rack01] erro mqtt: ECONNREFUSED
+21:09:59 [backend] erro mqtt: ECONNREFUSED
+21:10:00 [rack01] #20 guardada no buffer (3 pendentes)
+21:10:00 [rack02] #20 guardada no buffer (3 pendentes)
+21:10:02 [rack02] erro mqtt: ECONNREFUSED
+21:10:02 [backend] erro mqtt: ECONNREFUSED
+21:10:02 [rack01] erro mqtt: ECONNREFUSED
+21:10:03 [backend] ALERTA !!! [rack01] Sem leituras há 18 s (3 ciclos)
+21:10:03 [backend] ALERTA !!! [rack02] Sem leituras há 18 s (3 ciclos)
+21:10:05 [rack01] erro mqtt: ECONNREFUSED
+21:10:05 [rack02] erro mqtt: ECONNREFUSED
+21:10:05 [backend] erro mqtt: ECONNREFUSED
+21:10:05 [rack02] #21 guardada no buffer (4 pendentes)
+21:10:05 [rack01] #21 guardada no buffer (4 pendentes)
+21:10:08 [backend] erro mqtt: ECONNREFUSED
+21:10:08 [rack02] erro mqtt: ECONNREFUSED
+21:10:08 [rack01] erro mqtt: ECONNREFUSED
+21:10:10 [rack01] #22 guardada no buffer (5 pendentes)
+21:10:10 [rack02] #22 guardada no buffer (5 pendentes)
+21:10:11 [rack02] erro mqtt: ECONNREFUSED
+21:10:11 [backend] erro mqtt: ECONNREFUSED
+21:10:11 [rack01] erro mqtt: ECONNREFUSED
+21:10:14 [backend] erro mqtt: ECONNREFUSED
+21:10:14 [rack01] erro mqtt: ECONNREFUSED
+21:10:14 [rack02] erro mqtt: ECONNREFUSED
+
+### tecla m (21:10:15)
+>>> subindo o broker de novo
+21:10:15 [broker] broker de desenvolvimento em loopback, porta 1883
+21:10:15 [rack02] #23 guardada no buffer (6 pendentes)
+21:10:15 [rack01] #23 guardada no buffer (6 pendentes)
+21:10:17 [broker] conectou: backend-ingestao
+21:10:17 [backend] comunicacao com o broker restabelecida
+21:10:17 [backend] conectado ao broker (sessao anterior: nao)
+21:10:17 [broker] conectou: esp32-sala01-rack01
+21:10:17 [broker] conectou: esp32-sala01-rack02
+21:10:17 [rack01] conectado ao broker
+21:10:17 [rack01] reenviando 6 leituras do buffer
+21:10:17 [rack02] conectado ao broker
+21:10:17 [rack02] reenviando 6 leituras do buffer
+21:10:17 [rack01] #18 enviada (reenvio) T=23.1°C UR=45.9% I=7.3A
+21:10:17 [rack01] #19 enviada (reenvio) T=23.1°C UR=44.3% I=7.5A
+21:10:17 [rack01] #20 enviada (reenvio) T=23°C UR=43% I=7.3A
+21:10:17 [rack01] #21 enviada (reenvio) T=22.9°C UR=45.4% I=7.3A
+21:10:17 [rack01] #22 enviada (reenvio) T=22.9°C UR=45.5% I=7.5A
+21:10:17 [rack01] #23 enviada (reenvio) T=22.9°C UR=44% I=7.6A
+21:10:17 [rack02] #18 enviada (reenvio) T=22.9°C UR=45.4% I=7.4A
+21:10:17 [rack02] #19 enviada (reenvio) T=23°C UR=46.3% I=7.9A
+21:10:17 [rack02] #20 enviada (reenvio) T=22.9°C UR=45.8% I=7.7A
+21:10:17 [rack02] #21 enviada (reenvio) T=23.1°C UR=43.5% I=7.2A
+21:10:17 [rack02] #22 enviada (reenvio) T=22.9°C UR=46.3% I=7.5A
+21:10:17 [rack02] #23 enviada (reenvio) T=23°C UR=43.9% I=7.4A
+21:10:17 [backend] [rack01] status: online
+21:10:17 [backend] ALERTA - [rack01] Nó conectado ao broker
+21:10:17 [backend] [rack01] #18 gravada T=23.1 UR=45.9 I=7.3 (reenvio, atraso 27 s)
+21:10:17 [backend] [rack01] #19 gravada T=23.1 UR=44.3 I=7.5 (reenvio, atraso 22 s)
+21:10:17 [backend] [rack01] #20 gravada T=23 UR=43 I=7.3 (reenvio, atraso 17 s)
+21:10:17 [backend] [rack01] #21 gravada T=22.9 UR=45.4 I=7.3 (reenvio, atraso 12 s)
+21:10:17 [backend] ALERTA - [rack01] Comunicação restabelecida
+21:10:17 [backend] [rack01] #22 gravada T=22.9 UR=45.5 I=7.5 (reenvio, atraso 7 s)
+21:10:17 [backend] [rack01] #23 gravada T=22.9 UR=44 I=7.6 (reenvio, atraso 2 s)
+21:10:17 [backend] [rack02] status: online
+21:10:17 [backend] ALERTA - [rack02] Nó conectado ao broker
+21:10:17 [backend] [rack02] #18 gravada T=22.9 UR=45.4 I=7.4 (reenvio, atraso 27 s)
+21:10:17 [backend] [rack02] #19 gravada T=23 UR=46.3 I=7.9 (reenvio, atraso 22 s)
+21:10:17 [backend] [rack02] #20 gravada T=22.9 UR=45.8 I=7.7 (reenvio, atraso 17 s)
+21:10:17 [backend] [rack02] #21 gravada T=23.1 UR=43.5 I=7.2 (reenvio, atraso 12 s)
+21:10:17 [backend] ALERTA - [rack02] Comunicação restabelecida
+21:10:17 [backend] [rack02] #22 gravada T=22.9 UR=46.3 I=7.5 (reenvio, atraso 7 s)
+21:10:17 [backend] [rack02] #23 gravada T=23 UR=43.9 I=7.4 (reenvio, atraso 2 s)
+21:10:20 [rack02] #24 enviada T=23°C UR=43.5% I=7.8A
+21:10:20 [rack01] #24 enviada T=22.9°C UR=45% I=7.3A
+21:10:20 [backend] [rack02] #24 gravada T=23 UR=43.5 I=7.8
+21:10:20 [backend] [rack01] #24 gravada T=22.9 UR=45 I=7.3
+21:10:25 [rack02] #25 enviada T=22.9°C UR=46.4% I=7.8A
+21:10:25 [rack01] #25 enviada T=23°C UR=44.1% I=7.6A
+21:10:25 [backend] [rack02] #25 gravada T=22.9 UR=46.4 I=7.8
+21:10:25 [backend] [rack01] #25 gravada T=23 UR=44.1 I=7.6
+
+### tecla q (21:10:30)
+>>> encerrando...

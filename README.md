@@ -109,4 +109,21 @@ Na pasta `evidencias/` estão os prints do painel e os logs de cada componente d
 
 - envio dos alertas por Telegram/e-mail (hoje só grava no banco e mostra no log/painel)
 - trocar o SQLite pelo banco de séries temporais
-- autenticação no broker
+- autenticação e TLS no broker, e login no painel
+
+## Etapa 4: tolerância a falhas e segurança
+
+O texto com as decisões desta etapa está em [docs/entrega-falhas-seguranca.md](docs/entrega-falhas-seguranca.md) e o passo a passo para apresentar em aula em [docs/roteiro-demonstracao.md](docs/roteiro-demonstracao.md). Os prints e o log da execução estão em `evidencias/etapa4/`.
+
+O que mudou em relação à etapa 3:
+
+- "Comunicação restabelecida" só é registrada quando chega uma leitura atual. Antes bastava o nó reenviar o buffer, mesmo que só tivesse leitura antiga.
+- Leitura com horário mais de 60 s no futuro agora é descartada (antes o backend trocava pela hora de chegada, e um dado de horário desconhecido aparecia como atual).
+- O backend valida a mensagem antes de gravar (campos numéricos, `seq`, `intervalo_s`, `ts`, sala) e um erro na gravação não derruba o processo.
+- O log registra quando a conexão com o broker cai e quando volta.
+- No painel, a idade do dado continua contando a cada segundo mesmo com o backend fora, as consultas têm timeout de 4 s e o texto vindo da API é escapado antes de ir pro HTML.
+- O broker de desenvolvimento e a porta do Mosquitto no compose escutam só em `127.0.0.1`.
+- O cliente MQTT aceita `MQTT_USERNAME`, `MQTT_PASSWORD` e `MQTT_CA_FILE` por variável de ambiente (para usar com `MQTT_URL=mqtts://...` num broker com TLS). Nenhuma senha fica no código, e o `.gitignore` ignora `.env`, `*.key` e `*.pem`.
+- Testes automatizados com `npm test` (fluxo MQTT → banco → API, buffer do simulador e lógica do painel).
+
+Para ligar um ESP32 de verdade é preciso tirar o broker do loopback, e aí o TLS e a senha deixam de ser opcionais. O broker de desenvolvimento (aedes) e o `mosquitto.conf` continuam sem login, e a API não tem autenticação.

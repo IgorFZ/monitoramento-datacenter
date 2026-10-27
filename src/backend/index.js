@@ -16,6 +16,7 @@ const broker = { conectado: false, desde: Date.now() };
 // ---------------- MQTT ----------------
 
 const client = mqtt.connect(config.mqttUrl, {
+  ...config.mqttOptions,
   clientId: 'backend-ingestao',
   // sessao persistente: se o backend cair, o broker guarda as mensagens QoS 1
   // e entrega quando ele voltar
@@ -24,7 +25,9 @@ const client = mqtt.connect(config.mqttUrl, {
 });
 
 client.on('connect', (connack) => {
+  if (broker.jaConectou && !broker.conectado) log('comunicacao com o broker restabelecida');
   broker.conectado = true;
+  broker.jaConectou = true;
   broker.desde = Date.now();
   log(`conectado ao broker (sessao anterior: ${connack.sessionPresent ? 'sim' : 'nao'})`);
   client.subscribe(['datacenter/+/+/telemetria', 'datacenter/+/+/status'], { qos: 1 });
@@ -34,6 +37,7 @@ client.on('offline', () => {
   if (broker.conectado) {
     broker.conectado = false;
     broker.desde = Date.now();
+    log('comunicacao com o broker interrompida');
   }
   log('sem conexao com o broker, tentando de novo...');
 });
@@ -45,6 +49,9 @@ client.on('message', (topico, payload, packet) => {
   const partes = topico.split('/');
   if (partes.length !== 4) return log('topico fora do padrao, ignorado:', topico);
   const [, sala, no, tipo] = partes;
+  if (sala !== config.sala || !/^[a-zA-Z0-9_-]{1,64}$/.test(no)) {
+    return log('sala ou identificador fora do contrato, ignorado:', topico);
+  }
 
   let msg;
   try {
@@ -52,13 +59,28 @@ client.on('message', (topico, payload, packet) => {
   } catch {
     return log(`payload invalido em ${topico}`);
   }
+  if (!msg || typeof msg !== 'object' || Array.isArray(msg)) return log('payload deve ser um objeto:', topico);
+  if (msg.sala && msg.sala !== sala) return log('sala do payload diferente do topico:', topico);
 
   if (msg.no && msg.no !== no) {
     return log(`no do payload (${msg.no}) diferente do topico (${no}), ignorado`);
   }
 
-  if (tipo === 'telemetria') tratarLeitura(sala, no, msg);
-  else if (tipo === 'status') tratarStatus(no, msg, packet.retain);
+  if (tipo === 'telemetria') {
+    const campos = ['temp_c', 'umid_pct', 'corrente_a', 'tensao_v', 'potencia_w'];
+    if (!campos.every(c => typeof msg[c] === 'number' && Number.isFinite(msg[c])) ||
+        !Number.isInteger(msg.seq) || msg.seq < 1 ||
+        !Number.isFinite(msg.intervalo_s) || msg.intervalo_s <= 0 || msg.intervalo_s > 3600 ||
+        msg.umid_pct < 0 || msg.umid_pct > 100 || msg.corrente_a < 0 || msg.tensao_v < 0 || msg.potencia_w < 0 ||
+        typeof msg.ts !== 'string' || !Number.isFinite(Date.parse(msg.ts))) {
+      return log(`[${no}] telemetria invalida, descartada`);
+    }
+    try { tratarLeitura(sala, no, msg); }
+    catch (e) { log(`[${no}] falha ao persistir/processar leitura:`, e.message); }
+  } else if (tipo === 'status' && ['online', 'offline'].includes(msg.estado)) {
+    try { tratarStatus(no, msg, packet.retain); }
+    catch (e) { log(`[${no}] falha ao persistir status:`, e.message); }
+  }
 });
 
 function tratarLeitura(sala, no, msg) {
@@ -66,10 +88,10 @@ function tratarLeitura(sala, no, msg) {
   let ts = Date.parse(msg.ts);
   if (Number.isNaN(ts)) return log(`[${no}] leitura sem horario valido, descartada`);
 
-  // relogio do no muito adiantado (NTP nao sincronizou?) -> usa a hora de chegada
+  // Nao transformar uma medicao de horario desconhecido em dado atual.
+  // Preservar o ts tambem mantem estavel a chave de deduplicacao (no, ts).
   if (ts > agora + 60000) {
-    log(`[${no}] horario da leitura esta no futuro (${msg.ts}), usando hora de recebimento`);
-    ts = agora;
+    return log(`[${no}] horario da leitura mais de 60 s no futuro, descartada: ${msg.ts}`);
   }
 
   const leitura = { ...msg, ts };
@@ -119,7 +141,8 @@ function tratarLeitura(sala, no, msg) {
     retroativos.set(no, jaRegistrados);
   }
 
-  if (semComunicacao.has(no) && maisNova) {
+  // Reconectar e receber backlog nao comprova que a medicao voltou a ser atual.
+  if (semComunicacao.has(no) && ehAtual) {
     semComunicacao.delete(no);
     registrarAlerta(no, 'comunicacao', 'info', 'Comunicação restabelecida', agora);
   }
@@ -189,6 +212,7 @@ setInterval(() => {
 // ---------------- API ----------------
 
 const app = express();
+app.use('/api', (req, res, next) => { res.set('Cache-Control', 'no-store'); next(); });
 app.use(express.static(path.join(__dirname, '../../public')));
 
 app.get('/api/status', (req, res) => {
@@ -200,7 +224,8 @@ app.get('/api/racks', (req, res) => {
   const lista = sql.nos.all().map((n) => {
     const ultima = sql.ultimaLeitura.get(n.no);
     const limite = (n.intervalo_s || 30) * config.ciclosSemDado;
-    const idade = n.ultimo_ts ? Math.round((agora - n.ultimo_ts) / 1000) : null;
+    const idadeExata = n.ultimo_ts ? Math.max(0, (agora - n.ultimo_ts) / 1000) : null;
+    const idade = idadeExata === null ? null : Math.floor(idadeExata);
     const alertas = [];
     for (const [chave, nivel] of estadoAlertas) {
       if (chave.startsWith(n.no + ':') && nivel !== 'ok') alertas.push({ tipo: chave.split(':')[1], nivel });
@@ -214,7 +239,7 @@ app.get('/api/racks', (req, res) => {
       idade_s: idade,
       // a idade e calculada aqui no servidor, nao no navegador, para nao
       // depender do relogio da maquina de quem esta olhando
-      desatualizado: idade === null || idade > limite,
+      desatualizado: idadeExata === null || idadeExata > limite,
       limite_s: limite,
       alertas,
     };

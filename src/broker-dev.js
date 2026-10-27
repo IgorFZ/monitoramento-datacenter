@@ -12,7 +12,7 @@ async function main() {
   broker.on('client', (c) => console.log(hora(), '[broker] conectou:', c.id));
   broker.on('clientDisconnect', (c) => console.log(hora(), '[broker] desconectou:', c.id));
 
-  server.listen(porta, () => console.log(hora(), '[broker] broker de desenvolvimento ouvindo na porta', porta));
+  server.listen(porta, '127.0.0.1', () => console.log(hora(), '[broker] broker de desenvolvimento em loopback, porta', porta));
 }
 
 function hora() {

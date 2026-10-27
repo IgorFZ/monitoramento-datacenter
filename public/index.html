@@ -62,6 +62,23 @@
 <script>
 let selecionado = null;
 let ultimoOk = null;
+let racksGuardados = [];
+let recebidoMono = 0;
+let apiDisponivel = false;
+
+const escapar = valor => String(valor ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function buscar(url) {
+  const resposta = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(4000) });
+  if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
+  return resposta.json();
+}
+function redesenharIdade() {
+  const decorrido = (performance.now() - recebidoMono) / 1000;
+  desenharRacks(racksGuardados.map(r => ({ ...r,
+    idade_s: r.idade_s === null ? null : Math.floor(r.idade_s + decorrido),
+    desatualizado: !apiDisponivel || r.desatualizado || r.idade_s === null || r.idade_s + decorrido > r.limite_s,
+  })));
+}
 
 const hora = (ms) => new Date(ms).toLocaleTimeString('pt-BR');
 
@@ -75,11 +92,14 @@ function tempoAtras(s) {
 async function atualizar() {
   try {
     const [status, racks, alertas] = await Promise.all([
-      fetch('/api/status').then(r => r.json()),
-      fetch('/api/racks').then(r => r.json()),
-      fetch('/api/alertas?limite=15').then(r => r.json()),
+      buscar('/api/status'),
+      buscar('/api/racks'),
+      buscar('/api/alertas?limite=15'),
     ]);
     ultimoOk = Date.now();
+    apiDisponivel = true;
+    racksGuardados = racks;
+    recebidoMono = performance.now();
     document.getElementById('avisoServidor').style.display = 'none';
 
     const avisoBroker = document.getElementById('avisoBroker');
@@ -94,11 +114,13 @@ async function atualizar() {
     document.getElementById('info').textContent =
       'Broker: ' + status.broker + ' | atualizado às ' + hora(status.hora_servidor);
 
-    desenharRacks(racks);
+    redesenharIdade();
     desenharAlertas(alertas);
     if (!selecionado && racks.length) selecionado = racks[0].no;
     if (selecionado) await carregarLeituras(selecionado);
   } catch (e) {
+    apiDisponivel = false;
+    redesenharIdade();
     const aviso = document.getElementById('avisoServidor');
     aviso.textContent = 'Sem conexão com o servidor. ' +
       (ultimoOk ? 'Os dados na tela são de ' + hora(ultimoOk) + ' e não estão sendo atualizados.' : '');
@@ -117,48 +139,52 @@ function desenharRacks(racks) {
     else if (r.alertas.length) classe = 'atencao';
     if (r.desatualizado) classe = 'desatualizado';
 
-    let tags = r.alertas.map(a => `<span class="tag ${a.nivel}">${a.tipo}</span>`).join('');
+    let tags = r.alertas.map(a => `<span class="tag ${escapar(a.nivel)}">${escapar(a.tipo)}</span>`).join('');
     if (r.desatualizado) tags = '<span class="tag velho">DADO DESATUALIZADO</span>' + tags;
 
     const el = document.createElement('div');
     el.className = 'rack ' + classe;
     el.innerHTML = `
-      <h2>${r.no} <small style="font-weight:normal;font-size:12px">(${r.sala || '-'})</small></h2>
+      <h2>${escapar(r.no)} <small style="font-weight:normal;font-size:12px">(${escapar(r.sala || '-')})</small></h2>
       <div class="valores">
-        <div>Temp<br><b>${l.temp_c ?? '--'} °C</b></div>
-        <div>Umidade<br><b>${l.umid_pct ?? '--'} %</b></div>
-        <div>Corrente<br><b>${l.corrente_a ?? '--'} A</b></div>
-        <div>Potência<br><b>${l.potencia_w ?? '--'} W</b></div>
+        <div>Temp<br><b>${escapar(l.temp_c ?? '--')} °C</b></div>
+        <div>Umidade<br><b>${escapar(l.umid_pct ?? '--')} %</b></div>
+        <div>Corrente<br><b>${escapar(l.corrente_a ?? '--')} A</b></div>
+        <div>Potência<br><b>${escapar(l.potencia_w ?? '--')} W</b></div>
       </div>
       <div class="rodape">${tags}<br>
         Última leitura há ${r.idade_s === null ? '--' : tempoAtras(r.idade_s)}
-        ${r.ultima_leitura ? '(' + hora(l.ts) + ')' : ''} · MQTT: ${r.status_mqtt || '?'}
+        ${r.ultima_leitura ? '(' + hora(l.ts) + ')' : ''} · MQTT: ${escapar(r.status_mqtt || '?')}
       </div>`;
-    el.onclick = () => { selecionado = r.no; carregarLeituras(r.no); };
+    el.onclick = () => { selecionado = r.no; carregarLeituras(r.no).catch(() => {}); };
     div.appendChild(el);
   }
 }
 
 async function carregarLeituras(no) {
-  const lista = await fetch('/api/racks/' + no + '/leituras?limite=12').then(r => r.json());
+  const lista = await buscar('/api/racks/' + encodeURIComponent(no) + '/leituras?limite=12');
   document.getElementById('rackSel').textContent = '- ' + no;
   document.getElementById('leituras').innerHTML = lista.map(l => `
     <tr class="${l.reenvio ? 'reenvio' : ''}">
-      <td>${l.seq}</td><td>${hora(l.ts)}</td><td>${hora(l.recebido_em)}</td>
-      <td>${l.temp_c}</td><td>${l.umid_pct}</td><td>${l.corrente_a}</td><td>${l.potencia_w}</td>
+      <td>${escapar(l.seq)}</td><td>${hora(l.ts)}</td><td>${hora(l.recebido_em)}</td>
+      <td>${escapar(l.temp_c)}</td><td>${escapar(l.umid_pct)}</td><td>${escapar(l.corrente_a)}</td><td>${escapar(l.potencia_w)}</td>
       <td>${l.reenvio ? 'reenviada' : ''}</td>
     </tr>`).join('');
 }
 
 function desenharAlertas(lista) {
   document.getElementById('alertas').innerHTML = lista.map(a => `
-    <tr class="${a.nivel}">
-      <td>${hora(a.ts)}${a.retroativo ? ' (retroativo)' : ''}</td><td>${a.no}</td><td>${a.nivel}</td><td>${a.mensagem}</td>
+    <tr class="${escapar(a.nivel)}">
+      <td>${hora(a.ts)}${a.retroativo ? ' (retroativo)' : ''}</td><td>${escapar(a.no)}</td><td>${escapar(a.nivel)}</td><td>${escapar(a.mensagem)}</td>
     </tr>`).join('');
 }
 
-atualizar();
-setInterval(atualizar, 5000);
+async function cicloPainel() {
+  await atualizar();
+  setTimeout(cicloPainel, 5000);
+}
+cicloPainel();
+setInterval(redesenharIdade, 1000);
 </script>
 </body>
 </html>
